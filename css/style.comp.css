@@ -31,7 +31,7 @@ body {
 
 .intro {
   position: fixed;
-  top: 50%;
+  top: 70%;
   left: 6rem;
   transform: translate(0, -50%); }
   @media only screen and (max-width: 106.25em) {
