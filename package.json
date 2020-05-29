@@ -19,15 +19,5 @@
     "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alexsommers7/timeline.git"
-  },
-  "author": "Alex",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alexsommers7/timeline/issues"
-  },
-  "homepage": "https://github.com/alexsommers7/timeline#readme"
+  }
 }
