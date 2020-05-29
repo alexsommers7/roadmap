@@ -241,7 +241,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center; }
-    @media only screen and (max-width: 56.25em) {
+    @media (any-hover: none) {
       .milestone__details {
         display: none; } }
     .milestone__details:hover {
@@ -272,7 +272,8 @@ body {
   .milestone__icons.show-lg-down > svg {
     width: 3.5rem;
     height: 3.5rem;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    transition: all .4s; }
   .milestone__date {
     width: 6.5rem;
     height: 6.5rem;
@@ -318,7 +319,7 @@ body {
       transition: all .5s;
       transform: scale(0.85);
       background-color: #206C73; }
-      @media only screen and (max-width: 56.25em) {
+      @media (any-hover: none) {
         .milestone__date::after {
           display: none; } }
     .milestone__date:hover ~ .milestone__details {
@@ -327,13 +328,15 @@ body {
     .milestone__date:hover ~ .milestone__title,
     .milestone__date:hover ~ .milestone__subtitle,
     .milestone__date:hover ~ .milestone__buttons,
-    .milestone__date:hover ~ .milestone__type {
+    .milestone__date:hover ~ .milestone__type,
+    .milestone__date:hover ~ .milestone__icons.show-lg-down > svg {
       opacity: 0; }
-      @media only screen and (max-width: 56.25em) {
+      @media (any-hover: none) {
         .milestone__date:hover ~ .milestone__title,
         .milestone__date:hover ~ .milestone__subtitle,
         .milestone__date:hover ~ .milestone__buttons,
-        .milestone__date:hover ~ .milestone__type {
+        .milestone__date:hover ~ .milestone__type,
+        .milestone__date:hover ~ .milestone__icons.show-lg-down > svg {
           opacity: 1; } }
   .milestone__buttons {
     transition: all .4s;
@@ -362,7 +365,7 @@ body {
 .btn:hover, .btn:active {
   background-color: #206C73;
   color: #eff0eb; }
-  @media only screen and (max-width: 56.25em) {
+  @media (any-hover: none) {
     .btn:hover, .btn:active {
       background-color: transparent;
       color: #206C73; } }
@@ -377,7 +380,7 @@ body {
 .btn:hover > svg {
   color: #eff0eb;
   fill: #eff0eb; }
-  @media only screen and (max-width: 56.25em) {
+  @media (any-hover: none) {
     .btn:hover > svg {
       color: #206C73;
       fill: #206C73; } }

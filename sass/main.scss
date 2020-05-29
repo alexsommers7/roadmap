@@ -31,6 +31,9 @@ $color-off-white: #eff0eb;
     @if $breakpoint == xsmall {
         @media only screen and (max-width: 25em) {@content}; // 400px
     }
+    @if $breakpoint == nohover {
+        @media (any-hover: none) {@content}; // Non-hover devices
+    }
 }
 
 // Utility Classes
@@ -355,7 +358,7 @@ body {
         align-items: center;
         justify-content: center;
 
-        @include respond(large) {
+        @include respond(nohover) {
             display: none;
         }
 
@@ -404,6 +407,7 @@ body {
         width: 3.5rem;
         height: 3.5rem;
         margin-bottom: 1rem;
+        transition: all .4s;
     }
 
     &__date {
@@ -460,7 +464,7 @@ body {
             transform: scale(.85);
             background-color: $color-primary-light;
 
-            @include respond(large) { // Hide psuedo element on smaller screens
+            @include respond(nohover) { // Hide psuedo element on non-hover devices
                 display: none;
             }
         }
@@ -473,10 +477,11 @@ body {
         &:hover ~ .milestone__title, // Hide these on hover of date
         &:hover ~ .milestone__subtitle,
         &:hover ~ .milestone__buttons,
-        &:hover ~ .milestone__type { 
+        &:hover ~ .milestone__type,
+        &:hover ~ .milestone__icons.show-lg-down > svg { 
             opacity: 0;
 
-            @include respond(large) { // Forgo hiding of above elements on smaller screens
+            @include respond(nohover) { // Forgo hiding of above elements on smaller screens
                 opacity: 1;
             }
         }
@@ -523,7 +528,7 @@ body {
         background-color: $color-primary-light;
         color: $color-off-white;
 
-        @include respond(large) {
+        @include respond(nohover) {
             background-color: transparent;
             color: $color-primary-light;
         }
@@ -541,7 +546,7 @@ body {
         color: $color-off-white;
         fill: $color-off-white;
 
-        @include respond(large) {
+        @include respond(nohover) {
             color: $color-primary-light;
             fill: $color-primary-light;
         }
