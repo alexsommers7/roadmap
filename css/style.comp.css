@@ -271,6 +271,10 @@ body {
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
         border-right: 15px solid #fff; }
+  @media only screen and (max-width: 56.25em) {
+    .milestone.right > .milestone__details,
+    .milestone.left > .milestone__details {
+      transform: translateX(0) scale(0.01); } }
   .milestone__type {
     fill: #bbbdb9;
     width: 3.5rem;

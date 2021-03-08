@@ -78,5 +78,6 @@ function updateUI(show, hide, triggers) {
 // filter button for mobile
 btnOpenFilter.addEventListener("click", function() {
   btnsFilter.forEach(btn => btn.classList.toggle("visible"));
+  btnShowAll.classList.toggle("visible");
   filterWrapper.classList.toggle("active");
 })

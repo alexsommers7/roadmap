@@ -415,6 +415,13 @@ body {
     }
   }
 
+  &.right > .milestone__details,
+  &.left > .milestone__details {
+    @include respond(large) {
+      transform: translateX(0) scale(0.01);
+    }
+  }
+
   &__type {
     fill: $color-grey;
     width: 3.5rem;
