@@ -62,14 +62,11 @@ function updateUI(show, hide, triggers) {
   });
 
   // hide all elements that do not meet filter criteria
-  hide?.forEach(item => item.classList.add("hide"));
-
-  // create copy of show parameter
-  const showCopy = [...show];  
+  hide?.forEach(item => item.classList.add("hide"));  
 
   // display items that do meet filter criteria, add left-right association, adjust trigger #
-  showCopy.forEach((item, i) => {
-    showCopy.indexOf(item) % 2 === 0 ? item.classList.add("left") : item.classList.add("right");
+  show.forEach((item, i) => {
+    i % 2 === 0 ? item.classList.add("left") : item.classList.add("right");
     triggers[i].textContent = `${i + 1}`;
     item.classList.remove("hide");
   });
