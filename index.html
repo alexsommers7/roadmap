@@ -13,24 +13,31 @@
     </head>
     <body>
         <main>
-            <div class="timeline">
-                <div class="intro">
+            <section class="roadmap">
+                <aside class="intro">
                     <h1 class="intro__heading">Road</h1>
                     <h3 class="intro__subheading">Front End Dev</h3>
                     <div class="intro__profile">
                         <img src="Img/alex.jpg" class="headshot" alt="Alex Sommers"><span class="intro__name">Alex Sommers</span>
                     </div>
-                </div>
-                <div class="milestone">
-                    <h1 class="year">2020</h1>
-                    <p class="milestone__date">Feb.</p>
+                </aside>
+                <button class="trigger filter__trigger">Filter</button>
+                <aside class="filter">
+                    <h3 class="filter__heading">Filter by:</h3>
+                    <button class="btn filter__btn" data-filter="courses">Courses</button>
+                    <button class="btn filter__btn" data-filter="books">Books</button>
+                    <button class="btn filter__btn" data-filter="projects">Projects</button>
+                    <button class="btn filter__btn" data-filter="all">Show All</button>
+                </aside>
+                <div class="milestone left" data-milestone-category="courses">
+                    <button class="trigger milestone__trigger">1</button>
                     <svg class="milestone__type">
                         <use xlink:href="Icons/sprite.svg#icon-graduation-cap"></use>
                     </svg>
                     <h3 class="milestone__subtitle">Course</h3>
                     <h1 class="milestone__title">Udemy: Build Responsive Real World Websites with HTML and CSS</h1>
-                    <div class="milestone__icons show-lg-down">
-                        <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
+                    <div class="milestone__icons">
+                        <svg><use xlink:href="Icons/sprite.svg#icon-html5" title="HTML"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
                     </div>
                     <div class="milestone__buttons">
@@ -44,16 +51,15 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>Hello, world!</h2>
-                        <p>Although I had dabbled in HTML/CSS prior, this course was my first structured learning environment on the subject. Despite it teaching some now-outdated practices (looking at you, float layout), it's an excellent way to hit the ground running with the fundamental concepts of building a webpage.</p>
-                        <div class="milestone__icons">
-                            <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">Hello, world!</h2>
+                            <p class="details__text">Although I had dabbled in HTML/CSS prior, this course was my first structured learning environment on the subject. Despite it teaching some now-outdated practices (looking at you, float layout), it's an excellent way to hit the ground running with the fundamental concepts of building a webpage.</p>
                         </div>
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">March</p>
+                <div class="milestone right" data-milestone-category="courses">
+                    <button class="trigger milestone__trigger">2</button>
                     <svg class="milestone__type">
                         <use xlink:href="Icons/sprite.svg#icon-graduation-cap"></use>
                     </svg>
@@ -66,18 +72,21 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>A Crash Course on Web Design Best Practices</h2>
-                        <p>This was the first of many resources I plan to use in a quest to fill what I believe is the biggest gap in my dev game - web design. It's a brief, yet loaded course that will leave you with some practical tidbits to apply to your next webpage.</p>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">A Crash Course on Web Design Best Practices</h2>
+                            <p class="details__text">This was the first of many resources I plan to use in a quest to fill what I believe is the biggest gap in my dev game - web design. It's a brief, yet loaded course that will leave you with some practical tidbits to apply to your next webpage.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">April</p>
+                <div class="milestone left" data-milestone-category="courses">
+                    <button class="trigger milestone__trigger">3</button>
                     <svg class="milestone__type">
                         <use xlink:href="Icons/sprite.svg#icon-graduation-cap"></use>
                     </svg>
                     <h3 class="milestone__subtitle">Course</h3>
                     <h1 class="milestone__title">Udemy: Advanced CSS and Sass: Flexbox, Grid, Animations and More!</h1>
-                    <div class="milestone__icons show-lg-down">
+                    <div class="milestone__icons">
                         <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
@@ -101,55 +110,53 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>CSS Master</h2>
-                        <p>A solid course for learning modern layout techniques, SASS/SCSS, and some crafty CSS tricks to keep in your pocket (that checkbox hack is a doozy!). The advent of Flexbox and Grid are gamechangers for CSS and for devs everywhere, and this is an extremely helpful resource in learning their use cases and capabilities.</p>
-                        <div class="milestone__icons">
-                            <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">CSS Master</h2>
+                            <p class="details__text">A solid course for learning modern layout techniques, SASS/SCSS, and some crafty CSS tricks to keep in your pocket (that checkbox hack is a doozy!). The advent of Flexbox and Grid are gamechangers for CSS and for devs everywhere, and this is an extremely helpful resource in learning their use cases and capabilities.</p>
                         </div>
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">May</p>
+                <div class="milestone right" data-milestone-category="projects">
+                    <button class="trigger milestone__trigger">4</button>
                     <svg class="milestone__type">
                         <use xlink:href="Icons/sprite.svg#icon-embed2"></use>
                     </svg>
                     <h3 class="milestone__subtitle">Project</h3>
                     <h1 class="milestone__title">Freelance: JA Dancik Electric</h1>
-                    <div class="milestone__icons show-lg-down">
+                    <div class="milestone__icons">
                         <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
-                        <svg><use xlink:href="Icons/sprite.svg#icon-php"></use></svg>
-                        <svg><use xlink:href="Icons/sprite.svg#icon-jquery"></use></svg>
-                        <svg><use xlink:href="Icons/sprite.svg#icon-adobephotoshop"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
                     </div>
                     <div class="milestone__buttons">
                         <a class="btn" href="https://jadancikelectric.com/" target="_blank">
                             <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
                             Website
                         </a>
+                        <a class="btn" href="https://github.com/alexsommers7/ja-dancik-electric" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            GitHub Repo
+                        </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>My First Freelance Project</h2>
-                        <p>A simple local business site built with pure HTML, CSS/SCSS, and Javascript - no frameworks or bloat, resulting in a well-performing site. Hosted on Netlify via GitHub repo with form submissions handled by Netlify.</p>
-                        <div class="milestone__icons">
-                            <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-adobephotoshop"></use></svg>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">My First Freelance Project</h2>
+                            <p class="details__text">A simple local business site built with pure HTML, CSS/SCSS, and Javascript - no frameworks or bloat, resulting in a well-performing site. Hosted on Netlify via GitHub repo with form submissions handled by Netlify.</p>
                         </div>
+
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">June</p>
+                <div class="milestone left" data-milestone-category="courses">
+                    <button class="trigger milestone__trigger">5</button>
                     <svg class="milestone__type">
                         <use xlink:href="Icons/sprite.svg#icon-graduation-cap"></use>
                     </svg>
                     <h3 class="milestone__subtitle">Course</h3>
                     <h1 class="milestone__title">Harvard CS50: Introduction to Computer Science</h1>
-                    <div class="milestone__icons show-lg-down">
+                    <div class="milestone__icons">
                         <svg><use xlink:href="Icons/sprite.svg#icon-c"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-python"></use></svg>
                         <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
@@ -161,17 +168,15 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>A True Intro to Programming</h2>
-                        <p>This course was rigorous yet rewarding. To be candid, I didn't finish completely and instead moved onto FreeCodeCamp once I grasped the core concepts. The course teaches mostly C, with some Python and SQL sprinkled in. Very entertaining lectures and challenging problem sets. Be patient with this one!</p>
-                        <div class="milestone__icons">
-                            <svg><use xlink:href="Icons/sprite.svg#icon-c"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-python"></use></svg>
-                            <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">A True Intro to Programming</h2>
+                            <p class="details__text">This course was rigorous yet rewarding. To be candid, I didn't finish completely and instead moved onto FreeCodeCamp once I grasped the core concepts. The course teaches mostly C, with some Python and SQL sprinkled in. Very entertaining lectures and challenging problem sets. Be patient with this one!</p>
                         </div>
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">July</p>
+                <div class="milestone right" data-milestone-category="books">
+                    <button class="trigger milestone__trigger">6</button>
                     <svg class="milestone__type milestone__type--large">
                         <use xlink:href="Icons/sprite.svg#icon-book"></use>
                     </svg>
@@ -184,17 +189,47 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>Web Design Made Practical</h2>
-                        <p>A web developer's design bible, if you will. In ~200 pages, this e-book teaches you web design in a practical way. It touches on concepts you may not have thought of, like creating depth, designing systematically, and so much more. Highly recommend for anyone looking to up their web-design game!</p>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">Web Design Made Practical</h2>
+                            <p class="details__text">A web developer's design bible, if you will. In ~200 pages, this e-book teaches you web design in a practical way. It touches on concepts you may not have thought of, like creating depth, designing systematically, and so much more. Highly recommend for anyone looking to up their web-design game!</p>
+                        </div>
                     </div>
                 </div>
-                <div class="milestone">
-                    <p class="milestone__date">TBD</p>
+                <div class="milestone left" data-milestone-category="courses">
+                    <button class="trigger milestone__trigger">7</button>
+                    <svg class="milestone__type">
+                        <use xlink:href="Icons/sprite.svg#icon-graduation-cap"></use>
+                    </svg>
+                    <h3 class="milestone__subtitle">Course</h3>
+                    <h1 class="milestone__title">FreeCodeCamp: Javascript Algorithms & Data Structures</h1>
+                    <div class="milestone__icons">
+                        <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
+                    </div>
+                    <div class="milestone__buttons">
+                        <a class="btn" href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            Course
+                        </a>
+                    </div>
+                    <div class="milestone__details">
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">Meet Javascript</h2>
+                            <p class="details__text">My first real run-in with Javascript was here in FreeCodeCamp. I enjoyed the learning style in this course, wherein a new concept is introduced, and you immediately have a chance to practice at it before moving on. The final projects are a great exercise in seeing how much you've retained. Be patient with this one!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="milestone right" data-milestone-category="books">
+                    <button class="trigger milestone__trigger">8</button>
                     <svg class="milestone__type milestone__type--large">
                         <use xlink:href="Icons/sprite.svg#icon-book"></use>
                     </svg>
                     <h3 class="milestone__subtitle">Book</h3>
                     <h1 class="milestone__title">You Don't Know JS Yet: Get Started by Kyle Simpson</h1>
+                    <div class="milestone__icons">
+                        <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
+                    </div>
                     <div class="milestone__buttons">
                         <a class="btn" href="https://www.amazon.com/You-Dont-Know-JS-Yet-ebook/dp/B084BNMN7T" target="_blank">
                             <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
@@ -202,11 +237,78 @@
                         </a>
                     </div>
                     <div class="milestone__details">
-                        <h2>DETAILS HEADING</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">JS From a New Perspective</h2>
+                            <p class="details__text">A comprehensive look at Javascript through the eyes of someone who understands the pain points. The author dives in to many concepts I hadn't previously given enough thought, such as use strict, coercive comparison, and more. This book isn't one you skim through - I recommend you take your time and truly digest the information.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="milestone left" data-milestone-category="projects">
+                    <button class="trigger milestone__trigger">9</button>
+                    <svg class="milestone__type">
+                        <use xlink:href="Icons/sprite.svg#icon-embed2"></use>
+                    </svg>
+                    <h3 class="milestone__subtitle">Project</h3>
+                    <h1 class="milestone__title">Freelance: Glamorous Bags By Shae</h1>
+                    <div class="milestone__icons">
+                        <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
+                    </div>
+                    <div class="milestone__buttons">
+                        <a class="btn" href="https://glamorousbagsbyshae.com/" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            Website (PW: 2021bags)
+                        </a>
+                        <a class="btn" href="https://github.com/alexsommers7/glamorous-bags-by-shae" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            GitHub Repo
+                        </a>
+                    </div>
+                    <div class="milestone__details">
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">Another Client!</h2>
+                            <p class="details__text">This client needed an avenue to gather leads to purchase her products for her new business. This site achieved that goal, while also visually establishing her brand. The password protection feature (flimsy as it may be with it being client-side encryption that relies on cookies), was requested by the client to provide an exclusive feel.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="milestone right" data-milestone-category="projects">
+                    <button class="trigger milestone__trigger">10</button>
+                    <svg class="milestone__type">
+                        <use xlink:href="Icons/sprite.svg#icon-embed2"></use>
+                    </svg>
+                    <h3 class="milestone__subtitle">Project</h3>
+                    <h1 class="milestone__title">Freelance: LovelyHeartsAZ</h1>
+                    <div class="milestone__icons">
+                        <svg><use xlink:href="Icons/sprite.svg#icon-html5"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-css3"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-sass"></use></svg>
+                        <svg><use xlink:href="Icons/sprite.svg#icon-javascript"></use></svg>
+                    </div>
+                    <div class="milestone__buttons">
+                        <a class="btn" href="https://lovelyheartsaz.com/" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            Website (PW: 2021bags)
+                        </a>
+                        <a class="btn" href="https://github.com/alexsommers7/lovelyheartsaz" target="_blank">
+                            <svg><use xlink:href="Icons/sprite.svg#icon-link"></use></svg>
+                            GitHub Repo
+                        </a>
+                    </div>
+                    <div class="milestone__details">
+                        <div class="details__wrapper">
+                            <button class="details__close" aria-label="close details">x</button>
+                            <h2 class="details__heading">On a Roll Now!</h2>
+                            <p class="details__text">This client offers caretaking services and needed a way for interested clients to reach out. Like all of my other freelance projects to this point, this static site was built with pure HTML/CSS/JavaScript - no bloat! At this point, I can feel my design skills starting to improve. Practice makes perfect!</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </main>
+        <script src="/scripts/main.js"></script>
     </body>
     </html>

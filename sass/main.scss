@@ -1,553 +1,602 @@
 // Colors
-$color-primary: #0D5C63;
-$color-primary-light: #206C73;
-$color-primary-dark: #0C545B;
-$color-secondary: #BAA898;
-$color-secondary-light: #C1B0A0;
-$color-secondary-dark: #A99789;
-$color-tertiary: #424B54;
-$color-tertiary-light: #545D65;
-$color-tertiary-dark: #3B444D;
+$color-primary: #0d5c63;
+$color-primary-light: #206c73;
+$color-primary-dark: #0c545b;
+$color-secondary: #baa898;
+$color-secondary-light: #c1b0a0;
+$color-secondary-dark: #a99789;
+$color-tertiary: #424b54;
+$color-tertiary-light: #545d65;
+$color-tertiary-dark: #3b444d;
 $color-grey: rgb(187, 189, 185);
 $color-grey-dark: #323031;
-$color-grey-light: #D9DCD6;
+$color-grey-light: #d9dcd6;
 $color-off-white: #eff0eb;
-
 
 // Media Query Mixin
 @mixin respond($breakpoint) {
-    @if $breakpoint == xlarge {
-        @media only screen and (max-width: 106.25em) {@content}; // 1700px
-    }
-    @if $breakpoint == large {
-        @media only screen and (max-width: 56.25em) {@content}; // 900px
-    }
-    @if $breakpoint == medium {
-        @media only screen and (max-width: 43.75em) {@content}; // 700px
-    }
-    @if $breakpoint == small {
-        @media only screen and (max-width: 31.25em) {@content}; // 500px
-    }
-    @if $breakpoint == xsmall {
-        @media only screen and (max-width: 25em) {@content}; // 400px
-    }
-    @if $breakpoint == nohover {
-        @media (any-hover: none) {@content}; // Non-hover devices
-    }
-}
-
-// Utility Classes
-@media only screen and (min-width: 56.25em) {
-    .show-lg-down {
-        display: none !important;
-    }
+  @if $breakpoint == xxlarge {
+    @media only screen and (max-width: 106.25em) {
+      @content;
+    } // 1700px
+  }
+  @if $breakpoint == xlarge {
+    @media only screen and (max-width: 87.5em) {
+      @content;
+    } // 1400px
+  }
+  @if $breakpoint == large {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } // 900px
+  }
+  @if $breakpoint == medium {
+    @media only screen and (max-width: 43.75em) {
+      @content;
+    } // 700px
+  }
+  @if $breakpoint == small {
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    } // 500px
+  }
+  @if $breakpoint == xsmall {
+    @media only screen and (max-width: 25em) {
+      @content;
+    } // 400px
+  }
 }
 
 // Base
 html {
-    box-sizing: border-box;
-    font-size: 62.5%;
+  box-sizing: border-box;
+  font-size: 62.5%;
 
-    @include respond(medium) {
-        font-size: 50%;
-    }
+  @include respond(medium) {
+    font-size: 50%;
+  }
 
-    @include respond(small) {
-        font-size: 42.5%;
-    }
+  @include respond(small) {
+    font-size: 42.5%;
+  }
 }
 
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    line-height: 1.6;
-    padding: 7rem 3rem 3rem 3rem;
-    background-color: $color-off-white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  padding: 7rem 3rem 3rem 3rem;
+  background-color: $color-off-white;
+  overflow-y: scroll; // prevent filter box from shifting
 
-    @include respond(xlarge) {
-        padding-top: 0;
-    }
+  @include respond(xxlarge) {
+    padding-top: 0;
+  }
 }
 
-// My Road to Front End Dev
+// Triggers
+.trigger {
+  width: 6.5rem;
+  height: 6.5rem;
+  background-color: $color-primary-light;
+  color: $color-off-white;
+  font-weight: 300;
+  border-radius: 50%;
+  line-height: 1;
+  text-align: center;
+  position: absolute;
+  border: 2px solid $color-off-white;
+  box-shadow: 0 0 0 2px $color-primary-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 4px solid $color-primary-light;
+    box-shadow: none;
+    font-size: 3.2rem;
+
+    @include respond(large) {
+      font-size: 2rem;
+    }
+
+    &::after {
+      // Hover spread effect
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  &::after {
+    // Hover spread effect
+    content: "";
+    display: inline-block;
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 10rem;
+    position: absolute;
+    top: -0.275rem;
+    left: -0.25rem;
+    z-index: -10;
+    transition: all 0.5s;
+    transform: scale(0.85);
+    background-color: $color-primary-light;
+  }
+}
+
+// Asides
+.intro,
+.filter {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
 .intro {
-    position: fixed;
-    top: 50%;
-    left: 6rem;
-    transform: translate(0, -50%);
+  left: 6rem;
 
-    @include respond(xlarge) { //  Moving intro to top and put back into doc flow
-        position: relative;
-        align-self: center;
-        top: 0;
-        left: 0;
-        transform: translate(0, 0);
-        margin: 3rem auto 2rem auto; // More margin on top due to "My" being pulled up
+  @include respond(xxlarge) {
+    //  Moving intro to top and put back into doc flow
+    position: relative;
+    align-self: center;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    margin: 3rem auto 2rem auto; // More margin on top due to "My" being pulled up
+  }
+
+  &__name {
+    font-family: "Dawning of a New Day", cursive;
+    font-size: 4.5rem;
+  }
+
+  &__heading {
+    font-size: 12rem;
+    font-weight: 200;
+    color: $color-primary-light;
+    line-height: 1;
+    position: relative;
+
+    &::before,
+    &::after {
+      font-family: "Dawning of a New Day", cursive;
+      font-size: 4.5rem;
+      color: $color-grey-dark;
+      position: absolute;
     }
 
-    &__name {
-        font-family: 'Dawning of a New Day', cursive;
-        font-size: 4.5rem;
+    &::before {
+      // "My"
+      content: "My";
+      left: -4rem;
+      top: -1.5rem;
+
+      @include respond(small) {
+        left: -2.5rem;
+      }
     }
 
-    &__heading {
-        font-size: 12rem;
-        font-weight: 200;
-        color: $color-primary-light;
-        line-height: 1;
-        position: relative;
+    &::after {
+      // "to"
+      content: "to";
+      right: 4.5rem;
+      bottom: -1rem;
 
-        &::before,
-        &::after {
-            font-family: 'Dawning of a New Day', cursive;
-            font-size: 4.5rem;
-            color: $color-grey-dark;
-            position: absolute;
-        }
-
-        &::before { // "My"
-            content: "My";
-            left: -4rem;
-            top: -1.5rem;
-
-            @include respond(small) {
-                left: -2.5rem;
-            }
-        }
-
-        &::after { // "to"
-            content: "to";
-            right: 4.5rem;
-            bottom: -1rem;
-
-            @include respond(small) {
-                bottom: 0;
-            }
-        }
+      @include respond(small) {
+        bottom: 0;
+      }
     }
+  }
 
-    &__subheading {
-        font-size: 5rem;
-        font-weight: 600;
-        color: $color-primary-light;
-        line-height: 1;
-    }
+  &__subheading {
+    font-size: 5rem;
+    font-weight: 600;
+    color: $color-primary-light;
+    line-height: 1;
+  }
 
-    &__profile {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+  &__profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .headshot {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 1px solid $color-primary-light;
-    margin-right: 1rem;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 1px solid $color-primary-light;
+  margin-right: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.year {
-    position: absolute;
-    top: -8rem;
-    left: 1rem;
-    text-align: center;
-    font-size: 8rem;
-    line-height: 1;
-    font-weight: 200;
-    color: $color-grey;
-    opacity: .85;
+.filter {
+  right: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 20rem;
+  transition: all 0.3s;
 
-    @include respond(xlarge) {
-        text-align: right;
-        left: 0;
-        font-size: 6.5rem;
-        top: -1rem;
-    }
+  &.active {
+    background-color: $color-grey-light;
+    top: 5rem;
+  }
+
+  @include respond(xlarge) {
+    right: 1rem;
+    top: 1rem;
+    transform: translateY(0);
+  }
+
+  @include respond(large) {
+    align-items: flex-start;
+    position: absolute;
+    right: -1rem;
+  }
+
+  &__trigger {
+    display: none;
 
     @include respond(large) {
-        font-size: 6rem;
-        top: -.75rem;
+      position: absolute;
+      display: flex;
+      right: 5rem;
+      top: 1rem;
+      z-index: 40;
     }
+  }
 
-    @include respond(small) {
-        font-size: 4rem;
-        top: -.25rem;
+  &__btn {
+    flex: 0 0 100%;
+    appearance: none;
+    border: 1.75px solid $color-primary-light;
+    background: none;
+    cursor: pointer;
+    color: $color-primary-light;
+    padding: 0.5rem 1.5rem;
+    margin: 1rem auto;
+    font-size: 1.7rem;
+    border-radius: 100px;
+    transition: all 0.3s;
+  }
+
+  &__heading,
+  &__btn {
+    @include respond(large) {
+      // will be toggled by js
+      opacity: 0;
+      visibility: hidden;
     }
+  }
 }
 
-.timeline {
-    font-size: 1.8rem;
+// Middle section
+.roadmap {
+  font-size: 1.8rem;
+  color: $color-grey-dark;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &::before {
+    // Vertical line before first milestone
+    content: "";
+    height: 8.5rem;
+    position: absolute;
+    border-left: 3px solid $color-primary-light;
+    top: -8.5rem;
+    right: 30%;
+
+    @include respond(xxlarge) {
+      height: 31rem;
+      top: -31rem;
+    }
+  }
+
+  &::after {
+    content: "To be continued ... the learning never stops!";
+    font-size: 2.2rem;
+    text-align: center;
+    line-height: 1;
+    font-weight: 200;
     color: $color-grey-dark;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    height: 8.5rem;
+    padding: 3.5rem 1rem;
+    position: absolute;
+    bottom: -8.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 // Milestones
 .milestone {
-    margin: auto;
-    padding: 4.5rem;
-    width: 40%;
-    min-height: 18vw;
-    border: 3px solid $color-primary-light;
-    position: relative;
+  margin: auto;
+  padding: 4rem 4.5rem 4.5rem; // account for icon line height on top
+  width: 40%;
+  min-height: 18vw;
+  border: 3px solid $color-primary-light;
+  border-bottom: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @include respond(xxlarge) {
+    width: 60%;
+  }
+
+  @include respond(large) {
+    width: 85%;
+    padding: 3rem;
+  }
+
+  @include respond(medium) {
+    padding: 2.5rem;
+  }
+
+  & div.milestone__details.details--active {
+    // used for js to display details on trigger click
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  &:nth-of-type(even) > .milestone__details,
+  &:nth-of-type(odd) > .milestone__details {
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @include respond(large) {
+      // will be toggled by js
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &.right {
+    border-left: none;
+
+    & > .milestone__trigger {
+      right: -3.5rem;
+    }
+
+    & > .milestone__details {
+      transform: translateX(30rem) scale(0.01);
+
+      &::after {
+        right: -1rem;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid #fff;
+      }
+    }
+  }
+
+  &.left {
+    border-right: none;
+
+    & > .milestone__trigger {
+      left: -3.5rem;
+    }
+
+    & > .milestone__details {
+      transform: translateX(-30rem) scale(0.01);
+
+      &::after {
+        left: -1rem;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid #fff;
+      }
+    }
+  }
+
+  &__type {
+    fill: $color-grey;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s;
+
+    &--large {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    color: $color-primary-light;
+  }
+
+  &__title {
+    font-weight: 300;
+    line-height: 1.35;
+    width: 80%;
+    margin: 2rem auto 1rem auto;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  &__subtitle {
+    align-self: center;
+    line-height: 1;
+    transition: all 0.4s;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+
+    & > svg {
+      width: 4rem;
+      height: 4rem;
+
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+      }
+    }
+  }
+
+  &__details {
+    background-color: #fff;
+    position: absolute;
+    padding: 2rem;
+    width: 85%;
+    height: 80%;
+    border-top: 4px solid $color-primary-light;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 30;
+  }
 
-    @include respond(xlarge) {
-        width: 60%;
-    }
-
-    @include respond(large) {
-        width: 85%;
-        padding: 3rem;
-    }
+  &__trigger {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3.5rem;
 
     @include respond(medium) {
-        padding: 2.5rem;
+      font-size: 2rem;
     }
+  }
 
-    &:not(:last-child) { // Prevent double borders where divs meet
-        border-bottom: none;
+  // Button Group Styling
+  &__buttons {
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+
+    & > .btn:not(:last-child) {
+      margin-right: 1rem;
+
+      @include respond(xxlarge) {
+        margin-right: 0.5rem;
+      }
     }
-
-    &:nth-child(even) {
-        border-left: none;
-
-        & > .milestone__date {
-            right: -3.5rem;
-        }
-
-        & > .milestone__details {
-            transform: translateX(30rem) scale(.01);
-
-            &::after { // Arrow
-                content: "";
-                width: 0;
-                height: 0;
-                border-top: 15px solid transparent;
-                border-bottom: 15px solid transparent;
-                border-left: 15px solid #fff;
-                position: absolute;
-                top: 50%;
-                right: -1rem;
-                transform: translateY(-50%);
-            }
-        }
-    }
-
-    &:nth-child(odd) {
-        border-right: none;
-
-        & > .milestone__date {
-            left: -3.5rem;
-        }
-
-        & > .milestone__details {
-            transform: translateX(-30rem) scale(.01);
-
-            &::after { // Arrow
-                content: "";
-                width: 0;
-                height: 0;
-                border-top: 15px solid transparent;
-                border-bottom: 15px solid transparent;
-                border-right: 15px solid #fff;
-                position: absolute;
-                top: 50%;
-                left: -1rem;
-                transform: translateY(-50%);
-            }
-        }
-    }
-
-    &:nth-child(2) {
-        position: relative;
-
-        &::before { // Vertical line before first milestone
-            content: "";
-            height: 8.5rem;
-            position: absolute;
-            border-left: 3px solid $color-primary-light;
-            top: -8.5rem;
-            left: -2px;
-
-            @include respond(xlarge) {
-                height: 31rem;
-                top: -31rem;
-            }
-        }
-    }
-
-    &:last-child {
-        position: relative;
-
-        &::after { // Dotted line after last milestone
-            content: "To be continued ... the learning never stops!";
-            font-size: 2.2rem;
-            line-height: 1;
-            font-weight: 200;
-            color: $color-grey-dark;
-            height: 8.5rem;
-            padding: 3.5rem 1rem;
-            border-left: 3px dashed $color-primary-light; // Border-right if last child is odd, left if even
-            position: absolute;
-            bottom: -8.5rem;
-            left: -2px; // Right if last child is odd, left if even
-        }
-    }
-
-    &__type {
-        fill: $color-grey;
-        width: 3.5rem;
-        height: 3.5rem;
-        margin-bottom: 1.5rem;
-        transition: all .4s;
-
-        &--large {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-    }
-
-    &__subtitle {
-        color: $color-primary-light;
-    }
-
-    &__title {
-        font-weight: 300;
-        line-height: 1.35;
-        width: 80%;
-        margin: 2rem auto 1rem auto;
-        text-align: center;
-        transition: all .5s;
-    }
-
-    &__subtitle {
-        align-self: center;
-        line-height: 1;
-        transition: all .4s;
-    }
-
-    &__details {
-        background-color: #fff;
-        position: absolute;
-        padding: 2rem;
-        width: 85%;
-        height: 80%;
-        border-top: 4px solid $color-primary-light;
-        box-shadow: 0 1rem 2rem rgba(0,0,0, .05);
-        opacity: 0;
-        transition: all .5s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        @include respond(nohover) {
-            display: none;
-        }
-
-        &:hover {
-            opacity: 1;
-            transform: translateX(0), scale(1);
-        }
-
-        & > * {
-            margin: 1rem auto;
-        }
-        
-        & > h2 {
-            text-align: center;
-            font-weight: 300;
-            font-size: 3.5rem;
-            line-height: 1;
-        }
-
-        & > p {
-            font-size: 1.8rem;
-
-            @include respond(xlarge) {
-                font-size: 1.5rem;
-            }
-        }
-    }
-
-    &__icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: .5rem;
-
-        & > svg { // Hover icons
-            width: 4rem;
-            height: 4rem;
-            
-            &:not(:last-child) {
-                margin-right: 1.5rem;
-            }
-        }
-    }
-
-    &__icons.show-lg-down > svg { // Non-hover icons
-        width: 3.5rem;
-        height: 3.5rem;
-        margin-bottom: 1rem;
-        transition: all .4s;
-    }
-
-    &__date {
-        width: 6.5rem;
-        height: 6.5rem;
-        background-color: $color-primary-light;
-        color: $color-off-white;
-        font-weight: 600;
-        border-radius: 50%;
-        line-height: 1;
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        border: 2px solid $color-off-white;
-        box-shadow: 0 0 0 2px $color-primary-light;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.6rem;
-        cursor: pointer;
-        transition: all .5s ease-out;
-
-        @include respond(medium) {
-            font-size: 2rem;
-        }
-
-        &:focus {
-            outline: none;
-        }
-
-        &:hover {
-            border: 4px solid $color-primary-light;
-            box-shadow: none;
-            font-size: 2rem;
-
-            &::after { // Hover spread effect
-                transform: scale(1.4);
-                opacity: 0;
-            }
-        }
-
-        &::after { // Hover spread effect
-            content: "";
-            display: inline-block;
-            height: 6.5rem;
-            width: 6.5rem;
-            border-radius: 10rem;
-            position: absolute;
-            top: -.275rem;
-            left: -.25rem;
-            z-index: -10;
-            transition: all .5s;
-            transform: scale(.85);
-            background-color: $color-primary-light;
-
-            @include respond(nohover) { // Hide psuedo element on non-hover devices
-                display: none;
-            }
-        }
-
-        &:hover ~ .milestone__details { // Show details on hover of date
-            opacity: 1;
-            transform: translateX(0) scale(1);
-        }
-
-        &:hover ~ .milestone__title, // Hide these on hover of date
-        &:hover ~ .milestone__subtitle,
-        &:hover ~ .milestone__buttons,
-        &:hover ~ .milestone__type,
-        &:hover ~ .milestone__icons.show-lg-down > svg { 
-            opacity: 0;
-
-            @include respond(nohover) { // Forgo hiding of above elements on smaller screens
-                opacity: 1;
-            }
-        }
-    }
-
-// Button Group Styling
-    &__buttons {
-        transition: all .4s;
-        display: flex;
-        justify-content: center;
-        flex-flow: row wrap;
-
-        & > .btn:not(:last-child) {
-            margin-right: 1rem;
-
-            @include respond(xlarge) {
-                margin-right: .5rem;
-            }
-        }
-    }
+  }
 }
 
-// Button Individual Styling
-.btn {
-
-    &:link,
-    &:visited {
-    border: 1.75px solid $color-primary-light;
-    color: $color-primary-light;
-    padding: .5rem 1.5rem;
-    font-size: 1.7rem;
-    border-radius: 100px;
-    margin-top: .75rem;
-    text-decoration: none;
-    transition: all .3s;
-
-    @include respond(medium) {
-        font-size: 1.8rem;
-    }
-    }
+.details {
+  &__close {
+    display: none;
+  }
+  &--active .details__close {
+    display: block;
+    position: absolute;
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 2.75rem;
+    top: 1rem;
+    right: 1.5rem;
+    color: rgba($color-grey-dark, 0.5);
+    transition: color 0.3s;
 
     &:hover,
-    &:active {
-        background-color: $color-primary-light;
-        color: $color-off-white;
-
-        @include respond(nohover) {
-            background-color: transparent;
-            color: $color-primary-light;
-        }
+    &:focus {
+      outline: none;
+      color: $color-grey-dark;
     }
+  }
 
-    & > svg {
-        width: 1.2rem;
-        height: 1.2rem;
-        fill: $color-primary-light;
-        transition: all .3s;
-        margin-right: .15rem;
+  &__heading,
+  &__text {
+    margin: 1rem auto;
+  }
+
+  &__heading {
+    text-align: center;
+    font-weight: 300;
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+
+    @include respond(xxlarge) {
+      font-size: 1.5rem;
     }
+  }
+}
 
-    &:hover > svg {
-        color: $color-off-white;
-        fill: $color-off-white;
+// Button Styling
+.btn {
+  &:link,
+  &:visited {
+    border: 1.75px solid $color-primary-light;
+    color: $color-primary-light;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.7rem;
+    border-radius: 100px;
+    margin-top: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s;
 
-        @include respond(nohover) {
-            color: $color-primary-light;
-            fill: $color-primary-light;
-        }
+    @include respond(medium) {
+      font-size: 1.8rem;
     }
+  }
+
+  &:hover,
+  &:active {
+    background-color: $color-primary-light;
+    color: $color-off-white;
+
+    @include respond(nohover) {
+      background-color: transparent;
+      color: $color-primary-light;
+    }
+  }
+
+  & > svg {
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: $color-primary-light;
+    transition: all 0.3s;
+    margin-right: 0.15rem;
+  }
+
+  &:hover > svg {
+    color: $color-off-white;
+    fill: $color-off-white;
+  }
+}
+
+// utility classes
+.hide {
+  display: none;
+}
+.visible {
+  visibility: visible;
+  opacity: 1;
 }
