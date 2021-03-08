@@ -226,12 +226,15 @@ body {
   @media only screen and (max-width: 56.25em) {
     .milestone {
       width: 85%;
-      padding: 3rem; } }
+      padding: 3rem;
+      min-height: 50vw; } }
   @media only screen and (max-width: 43.75em) {
     .milestone {
-      padding: 2.5rem; } }
+      padding: 2.5rem;
+      min-height: 100vw; } }
   .milestone div.milestone__details.details--active {
     opacity: 1;
+    visibility: visible;
     transform: translateX(0) scale(1); }
   .milestone:nth-of-type(even) > .milestone__details::after,
   .milestone:nth-of-type(odd) > .milestone__details::after {
@@ -363,9 +366,6 @@ body {
 
 .details__text {
   font-size: 1.8rem; }
-  @media only screen and (max-width: 106.25em) {
-    .details__text {
-      font-size: 1.5rem; } }
 
 .btn:link, .btn:visited {
   border: 1.75px solid #206c73;

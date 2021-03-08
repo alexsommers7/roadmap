@@ -345,15 +345,18 @@ body {
   @include respond(large) {
     width: 85%;
     padding: 3rem;
+    min-height: 50vw;
   }
 
   @include respond(medium) {
     padding: 2.5rem;
+    min-height: 100vw;
   }
 
   & div.milestone__details.details--active {
     // used for js to display details on trigger click
     opacity: 1;
+    visibility: visible;
     transform: translateX(0) scale(1);
   }
 
@@ -542,10 +545,6 @@ body {
 
   &__text {
     font-size: 1.8rem;
-
-    @include respond(xxlarge) {
-      font-size: 1.5rem;
-    }
   }
 }
 
