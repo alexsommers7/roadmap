@@ -140,7 +140,9 @@ body {
   transition: all 0.3s; }
   .filter.active {
     background-color: #d9dcd6;
-    top: 5rem; }
+    top: 5rem;
+    z-index: 100;
+    padding: 0 1rem; }
   @media only screen and (max-width: 87.5em) {
     .filter {
       right: 1rem;
@@ -159,7 +161,7 @@ body {
         display: flex;
         right: 5rem;
         top: 1rem;
-        z-index: 40; } }
+        z-index: 110; } }
   .filter__btn {
     flex: 0 0 100%;
     appearance: none;

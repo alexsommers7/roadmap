@@ -235,6 +235,8 @@ body {
   &.active {
     background-color: $color-grey-light;
     top: 5rem;
+    z-index: 100;
+    padding: 0 1rem;
   }
 
   @include respond(xlarge) {
@@ -257,7 +259,7 @@ body {
       display: flex;
       right: 5rem;
       top: 1rem;
-      z-index: 40;
+      z-index: 110;
     }
   }
 
