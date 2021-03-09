@@ -3,10 +3,7 @@ html {
   font-size: 62.5%; }
   @media only screen and (max-width: 43.75em) {
     html {
-      font-size: 50%; } }
-  @media only screen and (max-width: 31.25em) {
-    html {
-      font-size: 42.5%; } }
+      font-size: 52.5%; } }
 
 *,
 *::before,
@@ -138,11 +135,12 @@ body {
   justify-content: center;
   max-width: 20rem;
   transition: all 0.3s; }
-  .filter.active {
-    background-color: #d9dcd6;
-    top: 5rem;
-    z-index: 100;
-    padding: 0 1rem; }
+  @media only screen and (max-width: 56.25em) {
+    .filter.active {
+      background-color: #d9dcd6;
+      top: 5rem;
+      z-index: 100;
+      padding: 0 1rem; } }
   @media only screen and (max-width: 87.5em) {
     .filter {
       right: 1rem;
@@ -152,14 +150,14 @@ body {
     .filter {
       align-items: flex-start;
       position: absolute;
-      right: -1rem; } }
+      right: -3rem; } }
   .filter__trigger {
     display: none; }
     @media only screen and (max-width: 56.25em) {
       .filter__trigger {
         position: absolute;
         display: flex;
-        right: 5rem;
+        right: 3rem;
         top: 1rem;
         z-index: 110; } }
   .filter__btn {
@@ -233,7 +231,7 @@ body {
   @media only screen and (max-width: 43.75em) {
     .milestone {
       padding: 2.5rem;
-      min-height: 100vw; } }
+      min-height: 120vw; } }
   .milestone div.milestone__details.details--active {
     opacity: 1;
     visibility: visible;

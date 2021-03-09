@@ -53,11 +53,7 @@ html {
   font-size: 62.5%;
 
   @include respond(medium) {
-    font-size: 50%;
-  }
-
-  @include respond(small) {
-    font-size: 42.5%;
+    font-size: 52.5%;
   }
 }
 
@@ -233,10 +229,12 @@ body {
   transition: all 0.3s;
 
   &.active {
-    background-color: $color-grey-light;
-    top: 5rem;
-    z-index: 100;
-    padding: 0 1rem;
+    @include respond(large) {
+      background-color: $color-grey-light;
+      top: 5rem;
+      z-index: 100;
+      padding: 0 1rem;
+    }
   }
 
   @include respond(xlarge) {
@@ -248,7 +246,7 @@ body {
   @include respond(large) {
     align-items: flex-start;
     position: absolute;
-    right: -1rem;
+    right: -3rem;
   }
 
   &__trigger {
@@ -257,7 +255,7 @@ body {
     @include respond(large) {
       position: absolute;
       display: flex;
-      right: 5rem;
+      right: 3rem;
       top: 1rem;
       z-index: 110;
     }
@@ -352,7 +350,7 @@ body {
 
   @include respond(medium) {
     padding: 2.5rem;
-    min-height: 100vw;
+    min-height: 120vw;
   }
 
   & div.milestone__details.details--active {

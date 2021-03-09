@@ -30,13 +30,14 @@ const milestones = document.querySelectorAll(".milestone");
 const milestoneTriggers = document.querySelectorAll(".milestone .milestone__trigger");
 const milestonesLeft = document.querySelectorAll(".milestone.left");
 const milestonesRight = document.querySelectorAll(".milestone.right");
-const btnOpenFilter = document.querySelector(".filter__trigger");
 const filterWrapper = document.querySelector(".filter");
+const btnOpenFilter = document.querySelector(".filter__trigger");
 const btnCourses = document.querySelector("[data-filter='courses']");
 const btnBooks = document.querySelector("[data-filter='books']");
 const btnProjects = document.querySelector("[data-filter='projects']");
 const btnsFilter = [btnCourses, btnBooks, btnProjects]; // add any new buttons here and create query above
 const btnShowAll = document.querySelector("[data-filter='all']");
+const allBtnsFilter = [...btnsFilter, btnOpenFilter, btnShowAll];
 
 // filter button functionality
 btnsFilter.forEach(btn => btn.addEventListener("click", function() {
@@ -73,8 +74,8 @@ function updateUI(show, hide, triggers) {
 }
 
 // filter button for mobile
-btnOpenFilter.addEventListener("click", function() {
+allBtnsFilter.forEach(btn => btn.addEventListener("click", function() {
   btnsFilter.forEach(btn => btn.classList.toggle("visible"));
   btnShowAll.classList.toggle("visible");
   filterWrapper.classList.toggle("active");
-})
+}))
