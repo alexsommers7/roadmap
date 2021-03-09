@@ -118,6 +118,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between; }
+  .intro__hint {
+    text-align: center;
+    padding: 1.5rem 0 1rem;
+    font-style: italic; }
 
 .headshot {
   width: 5rem;
