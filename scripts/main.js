@@ -66,7 +66,7 @@ function updateUI(show, hide, triggers) {
   hide?.forEach(item => item.classList.add("hide"));  
 
   // display items that do meet filter criteria, add left-right association, adjust trigger #
-  show.forEach((item, i) => {
+  show?.forEach((item, i) => {
     i % 2 === 0 ? item.classList.add("left") : item.classList.add("right");
     triggers[i].textContent = `${i + 1}`;
     item.classList.remove("hide");
@@ -75,7 +75,6 @@ function updateUI(show, hide, triggers) {
 
 // filter button for mobile
 allBtnsFilter.forEach(btn => btn.addEventListener("click", function() {
-  btnsFilter.forEach(btn => btn.classList.toggle("visible"));
-  btnShowAll.classList.toggle("visible");
+  [...btnsFilter, btnShowAll].forEach(btn => btn.classList.toggle("visible"));
   filterWrapper.classList.toggle("active");
 }))
