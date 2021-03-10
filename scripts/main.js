@@ -20,7 +20,6 @@ msDetailsClose.forEach((x, i) => x.addEventListener("click", function() {
 }))
 
 
-
 //////////////////////////////
 // MILESTONE FILTERING
 //////////////////////////////
@@ -31,27 +30,23 @@ const milestoneTriggers = document.querySelectorAll(".milestone .milestone__trig
 const milestonesLeft = document.querySelectorAll(".milestone.left");
 const milestonesRight = document.querySelectorAll(".milestone.right");
 const filterWrapper = document.querySelector(".filter");
-const btnOpenFilter = document.querySelector(".filter__trigger");
-const btnCourses = document.querySelector("[data-filter='courses']");
-const btnBooks = document.querySelector("[data-filter='books']");
-const btnProjects = document.querySelector("[data-filter='projects']");
-const btnsFilter = [btnCourses, btnBooks, btnProjects]; // add any new buttons here and create query above
-const btnShowAll = document.querySelector("[data-filter='all']");
-const allBtnsFilter = [...btnsFilter, btnOpenFilter, btnShowAll];
+const filterTrigger = document.querySelector(".filter__trigger");
+const filterBtns = document.querySelectorAll(".filter__btn");
 
 // filter button functionality
-btnsFilter.forEach(btn => btn.addEventListener("click", function() {
+filterBtns.forEach(btn => btn.addEventListener("click", function() {
   const filter = this.getAttribute("data-filter");
-  const toShow = document.querySelectorAll(`.milestone[data-milestone-category='${filter}']`);
-  const toHide = document.querySelectorAll(`.milestone:not([data-milestone-category='${filter}'])`);
-  const triggers = document.querySelectorAll(`.milestone[data-milestone-category='${filter}'] .milestone__trigger`);
+  let toShow, toHide, triggers
+  if (filter !== "all") {
+    toShow = document.querySelectorAll(`.milestone[data-milestone-category='${filter}']`);
+    toHide = document.querySelectorAll(`.milestone:not([data-milestone-category='${filter}'])`);
+    triggers = document.querySelectorAll(`.milestone[data-milestone-category='${filter}'] .milestone__trigger`);
+  } else {
+    toShow = document.querySelectorAll(`.milestone`);
+    triggers = document.querySelectorAll(`.milestone .milestone__trigger`);
+  }
   updateUI(toShow, toHide, triggers);
 }))
-
-// show all button functionality
-btnShowAll.addEventListener("click", function() {
-  updateUI(milestones, null, milestoneTriggers);
-})
 
 // function to update roadmap content based on filter
 function updateUI(show, hide, triggers) {
@@ -65,7 +60,7 @@ function updateUI(show, hide, triggers) {
   // hide all elements that do not meet filter criteria
   hide?.forEach(item => item.classList.add("hide"));  
 
-  // display items that do meet filter criteria, add left-right association, adjust trigger #
+  // display items that do meet filter criteria, add left-right association, adjust trigger #s
   show?.forEach((item, i) => {
     i % 2 === 0 ? item.classList.add("left") : item.classList.add("right");
     triggers[i].textContent = `${i + 1}`;
@@ -73,8 +68,8 @@ function updateUI(show, hide, triggers) {
   });
 }
 
-// filter button for mobile
-allBtnsFilter.forEach(btn => btn.addEventListener("click", function() {
-  [...btnsFilter, btnShowAll].forEach(btn => btn.classList.toggle("visible"));
+// dropdown filter for mobile
+[...filterBtns, filterTrigger].forEach(btn => btn.addEventListener("click", function() {
+  filterBtns.forEach(btn => btn.classList.toggle("visible"));
   filterWrapper.classList.toggle("active");
 }))
